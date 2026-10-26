@@ -1,3 +1,17 @@
-curl -sS -o /dev/null -w 'http=%{http_code} connect=%{http_connect}\n' --noproxy '' -x http://127.0.0.1:8079 https://evtstreamspltfrm-akhq.pf.dev.echonet:8443/ui/login
-curl -sS -o /dev/null --max-time 20 -w 'google http=%{http_code} connect=%{http_connect}\n' --noproxy '' -x http://127.0.0.1:8079 https://www.google.com
-curl -v --max-time 20 --noproxy '' -x http://127.0.0.1:8079 https://evtstreamspltfrm-akhq.pf.dev.echonet:8443/ui/login -o /dev/null 2>&1 | grep -E '^< HTTP|^\* (CONNECT|Proxy|Connected|Operation|Recv|SSL)'
+Objet : AKHQ dev inaccessible depuis le VPN (proxy en 503)
+
+Bonjour,
+
+Je n'arrive pas à accéder à https://evtstreamspltfrm-akhq.pf.dev.echonet:8443 depuis mon poste (PARWX0236456, compte h93596), alors que le reste de l'équipe y accède.
+
+Mon poste semble hors de cause :
+
+	•	VPN « France with SmartCard » connecté, ticket Kerberos valide, Preproxy actif.
+	•	Via Preproxy, Google répond normalement (200), mais AKHQ renvoie CONNECT tunnel failed, response 503.
+	•	En direct depuis le VPN (IP 11.144.140.195), 10.229.66.64 ne répond sur aucun port.
+
+Le proxy accepte bien la demande, mais n'arrive pas à joindre le serveur.
+
+Pourriez-vous vérifier si cette URL est accessible depuis le VPN, ou m'indiquer l'équipe à contacter ?
+
+Merci,
