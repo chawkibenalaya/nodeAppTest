@@ -1,3 +1,6 @@
+curl -x http://127.0.0.1:8079 -sI https://nexus-devops.pf.echonet/repository/maven-private/ | head -1
+
+
 nslookup nexus-devops.pf.echonet
 curl -sI https://nexus-devops.pf.echonet/repository/maven-private/ | head -1
 
