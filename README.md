@@ -1,3 +1,8 @@
+for v in ARTIFACTORY_URL ARTIFACTORY_API_URL ARTIFACTORY_USER ARTIFACTORY_PASSWORD DEVOPS_SPACE_ID; do
+  printf '%s=%s\n' "$v" "$( [ -n "${(P)v}" ] && echo OK || echo MANQUANTE )"
+done
+
+
 curl -x http://127.0.0.1:8079 -sI https://nexus-devops.pf.echonet/repository/maven-private/ | head -1
 
 
