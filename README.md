@@ -1,3 +1,8 @@
+nslookup nexus-devops.pf.echonet
+curl -sI https://nexus-devops.pf.echonet/repository/maven-private/ | head -1
+
+
+
 find ~/.m2/repository/com/bnpp/pf -name "*.lastUpdated" -delete
 find ~/.m2/repository/com/bnpp/pf -name "_remote.repositories" -delete
 
