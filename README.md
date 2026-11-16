@@ -32,4 +32,17 @@ find ~/.m2/repository/com/bnpp/pf -name "*.lastUpdated" -delete
 find ~/.m2/repository/com/bnpp/pf -name "_remote.repositories" -delete
 
 env | grep -i -E 'proxy|maven_opts|java_tool'
-cat .mvn/maven.config .mvn/jvm.config 2>/dev/null
+cat .mvn/maven.config .mvn/jvm.config 2>/dev/nul
+
+sed -E 's/(: "?.{6}).*/\1…/' /vault/secrets/storage.yml
+awk -F'"' '/access-key-id/{print "longueur =", length($2)}' /vault/secrets/storage.yml
+
+env | grep -iE 'STORAGE|COS_|ACCESS_KEY|SECRET_KEY|SPRING_PROFILES|SPRING_CONFIG' | sed -E 's/=(.{6}).*/=\1…/'
+
+find / -name 'application*.y*ml' -not -path '/proc/*' 2>/dev/null
+
+grep -n -A8 'storage:' <fichier> | sed -E 's/(key: .{6}).*/\1…/'
+
+
+
+
